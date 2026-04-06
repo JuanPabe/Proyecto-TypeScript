@@ -1,0 +1,11 @@
+{
+  "name": "tienda-typescript",
+  "version": "1.0.0",
+  "description": "Sistema simple de tienda en typescript",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc src/app.ts"
+  },
+  "author": "Juan",
+  "license": "MIT"
+}
