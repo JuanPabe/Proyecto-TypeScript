@@ -1,4 +1,4 @@
-// Sistema simple de tienda de ropa
+// sistema simple de tienda de ropa
 
 enum Categoria {
   REMERA = "Remera",
@@ -8,11 +8,11 @@ enum Categoria {
 
 // clase abstracta
 abstract class Producto {
-  protected id: number
-  protected nombre: string
-  protected precio: number
-  protected stock: number
-  protected categoria: Categoria
+  protected id:number
+  protected nombre:string
+  protected precio:number
+  protected stock:number
+  protected categoria:Categoria
 
   constructor(id:number,nombre:string,precio:number,stock:number,categoria:Categoria){
     this.id=id
@@ -29,7 +29,7 @@ abstract class Producto {
   }
 }
 
-// herencia
+// clase hija
 class Ropa extends Producto{
   talle:string
 
@@ -57,13 +57,26 @@ class Calzado extends Producto{
   }
 }
 
-// clase inventario
+// clase tienda
 class Tienda{
 
   productos:Producto[]=[]
 
   agregar(p:Producto){
     this.productos.push(p)
+  }
+
+  // sobrecarga de metodo buscar
+  buscar(id:number):Producto | undefined
+  buscar(nombre:string):Producto | undefined
+
+  buscar(valor:any):Producto | undefined{
+    if(typeof valor==="number"){
+      return this.productos.find(p=>p["id"]===valor)
+    }
+    else{
+      return this.productos.find(p=>p["nombre"]===valor)
+    }
   }
 
   mostrar(){
@@ -94,3 +107,6 @@ tienda.mostrar()
 console.log("Ordenados por precio:")
 tienda.ordenarPorPrecio()
 tienda.mostrar()
+
+console.log("Buscar producto:")
+console.log(tienda.buscar(1))
