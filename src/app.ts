@@ -1,4 +1,4 @@
-// sistema simple de tienda de ropa
+// sistema de tienda de ropa
 
 enum Categoria {
   REMERA = "Remera",
